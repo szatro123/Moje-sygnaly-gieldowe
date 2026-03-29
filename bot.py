@@ -2,8 +2,14 @@ import telebot
 import yfinance as yf
 from textblob import TextBlob
 import time
+import os
 
-TOKEN = "TWÓJ_TOKEN"   # zostanie nadpisany na Renderze
+# Pobierz token z Railway (zmienna środowiskowa)
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+
+# Jeśli token nie został znaleziony (zabezpieczenie)
+if not TOKEN:
+    TOKEN = "TWÓJ_TOKEN"   # możesz później usunąć tę linię
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -30,9 +36,10 @@ def get_positive_news(ticker):
     except:
         return []
 
+# ================== KOMENDY ==================
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, "✅ Bot działa!\n\nKomendy:\n/scan - sprawdź wszystkie\n/price TICKER - cena\n/news TICKER - dobre newsy")
+    bot.reply_to(message, "✅ Bot działa!\n\nKomendy:\n/scan - sprawdź wszystkie akcje\n/price TICKER - aktualna cena\n/news TICKER - dobre newsy")
 
 @bot.message_handler(commands=['price'])
 def price_cmd(message):
@@ -57,7 +64,7 @@ def news_cmd(message):
 
 @bot.message_handler(commands=['scan'])
 def scan_cmd(message):
-    bot.reply_to(message, "🔍 Skanuję akcje...")
+    bot.reply_to(message, "🔍 Skanuję watchlist...")
     for ticker in WATCHLIST:
         price = get_price(ticker)
         news_list = get_positive_news(ticker)
@@ -65,7 +72,7 @@ def scan_cmd(message):
         if news_list:
             msg += "\n\n✅ Dobre newsy:\n" + "\n".join(news_list)
         bot.send_message(message.chat.id, msg, parse_mode='Markdown')
-        time.sleep(1)
+        time.sleep(1.2)
 
-print("Bot uruchomiony...")
+print("Bot uruchomiony na Railway...")
 bot.infinity_polling()
