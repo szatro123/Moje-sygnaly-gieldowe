@@ -46,10 +46,15 @@ type MomentumAlert = {
 // Na start ręczna lista tickerów.
 // Potem możemy zrobić wersję auto top movers.
 const WATCHLIST = [
-  "AAPL", "NVDA", "TSLA", "PLTR", "SMCI", "AMD", "SOFI", "RIOT", "MARA",
-  "HOOD", "RIVN", "CVNA", "UPST", "AFRM", "IONQ", "SOUN", "ASTS", "RKLB",
-  "HIMS", "TEM", "CRWD", "PATH", "CFLT", "APP", "AI", "QBTS", "SERV",
-  "APLS", "CNTA", "AEHR", "ALKS", "CRML"
+  "APLS", "CNTA", "WSHP", "IMDX", "AEHR", "ALKS", "FBYD", "CRML",
+  "SOUN", "RKLB", "ASTS", "QBTS", "PLTR", "SERV", "IONQ", "TEM",
+  "RXRX", "DNA", "BE", "CHPT", "RUN", "ARRY", "NOVA", "ENVX",
+  "RGTI", "QUBT", "BBAI", "CIFR", "RIOT", "MARA", "CLSK", "WULF",
+  "HIMS", "CVNA", "UPST", "AFRM", "LMND", "SOFI", "HOOD", "APP",
+  "SMR", "OKLO", "NNE", "ACVA", "TMDX", "XENE", "ADMA", "TKNO",
+  "MRUS", "ARQT", "CPRX", "APGE", "VERA", "CGON", "CRGX", "ALVO",
+  "KULR", "MVST", "AMPX", "FLNC", "EOSE", "BLNK", "JOBY", "ACHR",
+  "LUNR", "INTA", "S", "AI", "C3AI", "PATH", "DDOG", "SNOW"
 ];
 
 const PRICE_MIN = 2;
