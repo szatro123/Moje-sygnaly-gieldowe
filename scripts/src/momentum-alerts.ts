@@ -57,16 +57,16 @@ const WATCHLIST = [
   "LUNR", "INTA", "S", "AI", "C3AI", "PATH", "DDOG", "SNOW"
 ];
 
-const PRICE_MIN = 2;
-const PRICE_MAX = 20;
+const PRICE_MIN = 1.5;
+const PRICE_MAX = 25;
 
 const MOVE_MIN = 4.0;
-const MOVE_MAX = 12.0;
+const MOVE_MAX = 18.0;
 
-const RELATIVE_VOLUME_MIN = 1.8;
+const RELATIVE_VOLUME_MIN = 1.5;
 
 // Jak blisko high dnia ma być cena, żeby ruch uznać za żywy
-const MAX_DISTANCE_FROM_HIGH_PCT = 3.0;
+const MAX_DISTANCE_FROM_HIGH_PCT = 4.0;
 
 // Chcemy, aby cena była nad open
 const REQUIRE_ABOVE_OPEN = true;
